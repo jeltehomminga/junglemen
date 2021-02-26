@@ -1,7 +1,38 @@
-import * as React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import { AnimatePresence } from "framer-motion";
-import { StyleSheet, Pressable } from "react-native";
 import { View } from "moti";
+import * as React from "react";
+import { Pressable, StyleSheet, Text } from "react-native";
+
+function KevinScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+function StephanoScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Jelte" component={JelteScreen} />
+        <Tab.Screen name="Kevin" component={KevinScreen} />
+        <Tab.Screen name="Stephano" component={StephanoScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
 
 function Shape({ bg }) {
   return (
@@ -23,7 +54,7 @@ function Shape({ bg }) {
   );
 }
 
-export default function App() {
+function JelteScreen() {
   const [visible, toggle] = React.useReducer((s) => !s, true);
   return (
     <Pressable onPress={toggle} style={styles.container}>
