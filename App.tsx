@@ -27,12 +27,10 @@ export default function App() {
   const [visible, toggle] = React.useReducer((s) => !s, true);
   return (
     <Pressable onPress={toggle} style={styles.container}>
-      {" "}
       <AnimatePresence exitBeforeEnter>
-        {" "}
-        {visible && <Shape bg="hotpink" key="hotpink" />}{" "}
-        {!visible && <Shape bg="cyan" key="cyan" />}{" "}
-      </AnimatePresence>{" "}
+        {visible && <Shape bg="hotpink" key="hotpink" />}
+        {!visible && <Shape bg="cyan" key="cyan" />}
+      </AnimatePresence>
     </Pressable>
   );
 }
